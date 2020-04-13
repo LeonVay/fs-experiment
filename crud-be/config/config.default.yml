@@ -1,0 +1,11 @@
+server:
+    port: 5000
+    host: 'localhost'
+db:
+    type: 'sqlite'
+    database: 'tmp/db.sql'
+    logging: true,
+    synchronize: true
+jwt:
+    expiresIn: 3600
+    secret: 'ptsecret!'
