@@ -1,8 +1,8 @@
 import * as config from 'config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Projects } from 'libs/projects/repository/projects.entity';
-import { User } from 'libs/users/repository/users.entity';
-import { AuthEntity } from 'libs/auth/repository/auth.entity.dto';
+import { Projects } from '@backend/projects';
+import { User } from '@backend/users';
+import { AuthEntity } from '@backend/auth';
 
 
 const dbConfig = config.get('db');

@@ -9,8 +9,8 @@ import { DeleteResult } from "typeorm";
 import { ProjectsStatusesValidationPipe } from "libs/pipes/projects-statuses-validation.pipe";
 import { ProjectsStatus } from "./project.interface";
 import { AuthGuard } from "@nestjs/passport";
-import { GetUser } from "libs/auth/decorators/get-user.decorator";
-import { User } from "libs/users/repository/users.entity";
+import { GetUser } from "@backend/auth";
+import { User } from "@backend/users";
 
 @Controller('/projects')
 @UseGuards(AuthGuard())

@@ -5,7 +5,7 @@ import { CreateProjectDto } from "../dto/create-project.dto";
 import { UpdateProjectDto } from "../dto/update-project.dto";
 import { NotFoundException } from "@nestjs/common";
 import { DeleteProjectDto } from "../dto/delete-project.dto";
-import { User } from "libs/users/repository/users.entity";
+import { User } from "@backend/users";
 
 
 @EntityRepository(Projects)

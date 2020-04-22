@@ -1,6 +1,6 @@
 import { EntityRepository, Repository, DeleteResult } from "typeorm";
 import { User } from "./users.entity";
-import { NotFoundException, ConflictException, InternalServerErrorException } from "@nestjs/common";
+import { NotFoundException, InternalServerErrorException } from "@nestjs/common";
 import { CreateUsersDto } from "../dto/create-user.dto";
 
 @EntityRepository(User)

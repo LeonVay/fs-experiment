@@ -1,5 +1,5 @@
 import { PipeTransform, BadRequestException } from "@nestjs/common";
-import { ProjectsStatus } from "libs/projects/project.interface";
+import { ProjectsStatus } from "@backend/projects";
 
 
 export class ProjectsStatusesValidationPipe implements PipeTransform {

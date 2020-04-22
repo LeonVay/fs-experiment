@@ -8,7 +8,7 @@ import { CreateProjectDto } from "./dto/create-project.dto";
 import { UpdateProjectDto } from "./dto/update-project.dto";
 import { DeleteProjectDto } from "./dto/delete-project.dto";
 import { DeleteResult } from "typeorm";
-import { User } from "libs/users/repository/users.entity";
+import { User } from "@backend/users";
 
 @Injectable()
 export class ProjectsService {

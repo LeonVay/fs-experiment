@@ -1,6 +1,6 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { ProjectsStatus } from '../project.interface';
-import { User } from 'libs/users/repository/users.entity';
+import { User } from '@backend/users';
 
 @Entity()
 export class Projects extends BaseEntity {

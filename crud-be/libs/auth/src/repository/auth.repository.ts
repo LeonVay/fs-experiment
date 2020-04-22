@@ -1,10 +1,10 @@
 import * as bcrypt from 'bcrypt';
-import { UsersRepository } from "libs/users/repository/users.repository";
+import { UsersRepository } from "@backend/users";
 import { SignInDto } from "../dto/signin.dto";
-import { CreateUsersDto } from 'libs/users/dto/create-user.dto';
+import { CreateUsersDto } from '@backend/users';
 import { AuthEntity } from './auth.entity.dto';
 import { EntityRepository } from 'typeorm';
-import { UnauthorizedException, InternalServerErrorException } from '@nestjs/common';
+import { InternalServerErrorException } from '@nestjs/common';
 
 @EntityRepository(AuthEntity)
 export class AuthRepository extends UsersRepository {

@@ -1,5 +1,5 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, Unique, OneToMany } from "typeorm";
-import { Projects } from "libs/projects/repository/projects.entity";
+import { Projects } from "@backend/projects";
 
 @Entity()
 @Unique(['login'])
