@@ -20,7 +20,6 @@ const entry = dev ? ['webpack/hot/poll?1000', './src/main.ts'] : './src/server/m
 
 module.exports = {
     entry: [
-        'webpack/hot/poll?100',
         './src/main.ts',
     ],
     output: {

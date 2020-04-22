@@ -1,8 +1,22 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "outDir": "../../dist/libs/auth",
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
     "declaration": true,
-    "outDir": "../../dist/libs/auth"
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "types": [],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2018"
+    ]
   },
   "include": ["src/*", "src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]

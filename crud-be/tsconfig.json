@@ -12,24 +12,16 @@
     "incremental": true,
     "paths": {
       "@backend/auth": [
-        "libs/auth/src"
-      ],
-      "@backend/auth/*": [
-        "libs/auth/src/*"
+        "libs/auth/src/index.ts"
       ],
 
       "@backend/users": [
-        "libs/users/src"
-      ],
-      "@backend/users/*": [
-        "libs/users/src/*"
+        "libs/users/src/index.ts"
       ],
 
+
       "@backend/projects": [
-        "libs/projects/src"
-      ],
-      "@backend/projects/*": [
-        "libs/projects/src/*"
+        "libs/projects/src/index.ts"
       ]
     }
   },

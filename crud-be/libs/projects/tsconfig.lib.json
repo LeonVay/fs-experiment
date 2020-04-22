@@ -1,10 +1,24 @@
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-      "declaration": true,
-      "outDir": "../../dist/libs/projects"
-    },
-    "include": ["src/*", "src/**/*"],
-    "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
-  }
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/libs/projects",
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "types": [],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2018"
+    ]
+  },
+  "include": ["src/*", "src/**/*"],
+  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
+}
   
