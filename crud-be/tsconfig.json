@@ -7,7 +7,7 @@
     "experimentalDecorators": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "baseUrl": "./",
     "incremental": true,
     "paths": {
@@ -22,11 +22,20 @@
 
       "@backend/projects": [
         "libs/projects/src/index.ts"
+      ],
+
+      "@backend/impacts": [
+        "libs/impacts/src/index.ts"
+      ],
+
+      "@backend/attack-type": [
+        "libs/attack-type/src/index.ts"
       ]
     }
   },
   "exclude": [
     "node_modules",
+    "build",
     "dist"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/libs/auth",
+    "outDir": "../../build/libs/auth",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",

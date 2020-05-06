@@ -1,11 +1,14 @@
 {
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
+  "outDir": "./build",
   "compilerOptions": {
     "plugins": [
       "@nestjs/swagger/plugin"
     ],
-    "webpack": true
+    "webpack": true,
+    "tsConfigPath": "tsconfig.build.json",
+    "outDir": "./build"
   },
   "projects": {
     "auth": {
@@ -33,6 +36,24 @@
       "sourceRoot": "libs/projects/src",
       "compilerOptions": {
         "tsConfigPath": "libs/projects/tsconfig.lib.json"
+      }
+    },
+    "impacts": {
+      "type": "library",
+      "root": "libs/impacts",
+      "entryFile": "index",
+      "sourceRoot": "libs/impacts/src",
+      "compileOptions": {
+        "tsConfigPath": "libs/impacts/tsconfig.lib.json"
+      }
+    },
+    "attackType": {
+      "type": "library",
+      "root": "libs/attack-type",
+      "entryFile": "index",
+      "sourceRoot": "libs/attack-type/src",
+      "compileOptions": {
+        "tsConfigPath": "libs/attack-type/tsconfig.lib.json"
       }
     }
   }

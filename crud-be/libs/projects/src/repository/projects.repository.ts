@@ -21,7 +21,7 @@ export class ProjectsRepository extends Repository<Projects>{
         return (await this.find()).filter((project) => project.userId === user.id);
     }
 
-    async getProjectsByCriteria(status: ProjectsStatus, search: string, user: User): Promise<Projects[]> {
+    async getProjectsByCriteria(status: ProjectsStatus, search: string|string[], user: User): Promise<Projects[]> {
         const query = this.createQueryBuilder('projects');
 
         query.where('projects.userId = :userId', {userId: user.id});

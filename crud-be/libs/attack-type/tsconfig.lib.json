@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../build/libs/projects",
+    "outDir": "../../build/libs/attack-type",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",
@@ -21,4 +21,3 @@
   "include": ["src/*", "src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }
-  

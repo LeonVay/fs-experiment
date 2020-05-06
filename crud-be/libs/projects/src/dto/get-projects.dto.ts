@@ -1,5 +1,6 @@
 import { ProjectsStatus } from "../project.interface";
 import { IsNotEmpty } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class GetCretariaDto {
 
@@ -7,5 +8,6 @@ export class GetCretariaDto {
     status: ProjectsStatus;
 
     @IsNotEmpty()
-    search: string;
+    @ApiProperty({type: String, isArray: true})
+    search: string[];
 }
