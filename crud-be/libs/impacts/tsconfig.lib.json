@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../build/libs/impacts",
+    "outDir": "../../dist/libs/impacts",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",

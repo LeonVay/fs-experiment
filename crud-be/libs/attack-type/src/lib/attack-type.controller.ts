@@ -4,7 +4,7 @@ import { CreateAttackTypeDto } from './dto/create-attack-type.dto';
 import { UpdateAttackTypeDto } from './dto/update-attack-type.dto';
 import { AttackTypeService } from './attack-type.service';
 
-@Controller('attack-type')
+@Controller('/attack-type')
 export class AttackTypeController {
 
     constructor(private attackTypeService: AttackTypeService) {}

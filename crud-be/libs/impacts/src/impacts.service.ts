@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult } from 'typeorm';
+import { DeleteResult, getRepository } from 'typeorm';
 import { ImpactsRepository } from './repository/imacts.repository';
 import { Impact } from './repository/impacts.entity';
 import { CreateImpactDto } from './dto/create-impact.dto';
 import { UpdateImpactDto } from './dto/update-impact.dto';
+import { AttackType } from '@backend/attack-type';
+
 
 @Injectable()
 export class ImpactsService {
 
-    constructor(@InjectRepository(ImpactsRepository) private impactsRepository: ImpactsRepository) {}
+    constructor(@InjectRepository(ImpactsRepository)
+                private impactsRepository: ImpactsRepository) {}
 
     async getAll(): Promise<Impact[]> {
         return this.impactsRepository.getAllRecords();
@@ -20,11 +23,15 @@ export class ImpactsService {
     }
 
     async createImpactFromDto(createImpactDto: CreateImpactDto): Promise<Impact> {
-        return this.impactsRepository.createOne(createImpactDto);
+        const attacksRepo = getRepository<AttackType>(AttackType)
+        const typesList = await attacksRepo.findByIds(createImpactDto.attackTypes);
+        return this.impactsRepository.createOne(createImpactDto.name, typesList);
     }
 
     async updateByIdFromDto(id: number, updateImpactDro: UpdateImpactDto): Promise<Impact> {
-        return this.impactsRepository.updateOne(id, updateImpactDro);
+        const attacksRepo = getRepository<AttackType>(AttackType);
+        const typesList = await attacksRepo.findByIds(updateImpactDro.attackTypes);
+        return this.impactsRepository.updateOne(id, typesList);
     }
 
     async deleteImpact(id: number): Promise<DeleteResult> {

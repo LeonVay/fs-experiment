@@ -8,7 +8,7 @@ export class Impact extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'string'})
+    @Column({ type: 'text'})
     name: string;
 
     @ManyToMany(type => AttackType, (attackType) => attackType.impacts)

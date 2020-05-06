@@ -4,6 +4,8 @@ import { AttackType } from '@backend/attack-type';
 import { CreateAttackTypeDto } from './dto/create-attack-type.dto';
 import { UpdateAttackTypeDto } from './dto/update-attack-type.dto';
 import { AttackTypeRepository } from './repository/attack-type.repository';
+import { getRepository } from 'typeorm';
+import { Impact } from '@backend/impacts';
 
 @Injectable()
 export class AttackTypeService {
@@ -20,10 +22,16 @@ export class AttackTypeService {
     }
 
     async createByDto(createAttackTypeDto: CreateAttackTypeDto): Promise<AttackType> {
-        return this.attackTypeRepository.createOne(createAttackTypeDto);
+        let {name, impacts} = createAttackTypeDto;
+        const impactsRepo = getRepository<Impact>(Impact);
+        let impactsList = await impactsRepo.findByIds(impacts);
+        return this.attackTypeRepository.createOne(name, impactsList);
     }
 
     async updateById(id: number, updateAttackTypeDto: UpdateAttackTypeDto): Promise<AttackType> {
-        return this.attackTypeRepository.updateOne(id, updateAttackTypeDto);
+        let {name, impacts} = updateAttackTypeDto;
+        const impactsRepo = getRepository<Impact>(Impact);
+        let impactsList = await impactsRepo.findByIds(impacts);
+        return this.attackTypeRepository.updateOne(id, name, impactsList);
     }
 }

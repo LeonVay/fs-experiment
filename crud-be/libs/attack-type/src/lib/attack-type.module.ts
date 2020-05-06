@@ -3,10 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AttackType } from './repository/attack-type.entity';
 import { AttackTypeController } from './attack-type.controller';
 import { AttackTypeService } from './attack-type.service';
+import { AttackTypeRepository } from './repository/attack-type.repository';
 
 @Module({
     imports: [TypeOrmModule.forFeature([AttackType])],
     controllers: [AttackTypeController],
-    providers: [AttackTypeService]
+    providers: [AttackTypeService, AttackTypeRepository]
 })
 export class AttackTypeModule {}

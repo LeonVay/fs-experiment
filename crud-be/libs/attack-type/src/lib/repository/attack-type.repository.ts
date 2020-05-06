@@ -8,7 +8,7 @@ import { UpdateAttackTypeDto } from '../dto/update-attack-type.dto';
 
 @EntityRepository()
 export class AttackTypeRepository extends Repository<AttackType>{
-    constructor(@InjectRepository(Impact) private impactsRepository: ImpactsRepository) {
+    constructor() {
         super();
 
         return this;
@@ -22,19 +22,17 @@ export class AttackTypeRepository extends Repository<AttackType>{
         return this.findOne({id});
     }
 
-    async createOne(createAttackTypeDto: CreateAttackTypeDto): Promise<AttackType> {
-        let {name, impacts} = createAttackTypeDto;
+    async createOne(name, impacts): Promise<AttackType> {
 
         const attackType = new AttackType()
 
         attackType.name = name;
-        attackType.impacts = await this.impactsRepository.findByIds(impacts);
+        attackType.impacts = impacts;
 
         return attackType.save();
     }
 
-    async updateOne(id: number, updateAttackTypeDto: UpdateAttackTypeDto): Promise<AttackType> {
-        let {name, impacts} = updateAttackTypeDto;
+    async updateOne(id: number, name, impacts): Promise<AttackType> {
         const attackType = await this.findOne({id});
 
         if (name) {
@@ -42,8 +40,7 @@ export class AttackTypeRepository extends Repository<AttackType>{
         }
 
         if (impacts) {
-            let newImpacts = await this.impactsRepository.findByIds(impacts);
-            attackType.impacts = newImpacts;
+            attackType.impacts = impacts;
         }
 
         return attackType.save();

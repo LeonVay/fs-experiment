@@ -1,14 +1,14 @@
 {
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
-  "outDir": "./build",
+  "outDir": "./dist",
   "compilerOptions": {
     "plugins": [
       "@nestjs/swagger/plugin"
     ],
     "webpack": true,
     "tsConfigPath": "tsconfig.build.json",
-    "outDir": "./build"
+    "outDir": "./dist"
   },
   "projects": {
     "auth": {

@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Projects, ProjectsModule } from '@backend/projects';
 import { User, UsersModule } from '@backend/users';
 import { AuthEntity, AuthModule } from '@backend/auth';
+import { Impact, ImpactsModule } from '@backend/impacts';
+import { AttackType, AttackTypeModule } from '@backend/attack-type';
 
 @Module({
   imports: [
@@ -14,7 +16,9 @@ import { AuthEntity, AuthModule } from '@backend/auth';
       entities: [
         Projects,
         User,
-        AuthEntity
+        AuthEntity,
+        Impact,
+        AttackType
       ],
       // entities: ["dist/**/*.entity{.ts,.js}"],
       logging: true,
@@ -32,7 +36,9 @@ import { AuthEntity, AuthModule } from '@backend/auth';
     }),
     ProjectsModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    ImpactsModule,
+    AttackTypeModule
   ],
   controllers: [AppController],
   providers: [AppService],

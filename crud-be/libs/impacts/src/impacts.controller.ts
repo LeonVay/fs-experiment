@@ -1,11 +1,10 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { ImpactsService } from './impacts.service';
 import { Impact } from './repository/impacts.entity';
 import { CreateImpactDto } from './dto/create-impact.dto';
 import { UpdateImpactDto } from './dto/update-impact.dto';
 
-@Controller('impacts')
+@Controller('/impacts')
 export class ImpactsController {
     constructor(private impactsService: ImpactsService) {}
 
@@ -31,7 +30,6 @@ export class ImpactsController {
     }
 
     @Delete(':id')
-    @UseGuards(AuthGuard)
     async deleteImpact(@Param('id', ParseIntPipe) id: number) {
         return this.impactsService.deleteImpact(id);
     }
