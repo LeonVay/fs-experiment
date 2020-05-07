@@ -8,11 +8,11 @@ import { NotFoundException } from '@nestjs/common';
 export class HardwareRepository extends Repository<HardwareEntity> {
 
     async getAllHardware(): Promise<HardwareEntity[]> {
-        return this.find();
+        return await this.find();
     }
 
     async getSingleHardware(id: number): Promise<HardwareEntity> {
-        return this.findOne({id});
+        return await this.findOne({id});
     }
 
     async createHardware(createHardwareDto: CreateHardwareDto): Promise<HardwareEntity> {
@@ -25,7 +25,7 @@ export class HardwareRepository extends Repository<HardwareEntity> {
         hrdwr.status = status;
         hrdwr.inUse = inUse;
 
-        return hrdwr.save();
+        return await hrdwr.save();
     }
 
     async updateHardware(id: number, updateHardwareDto: UpdateHardwareDto): Promise<HardwareEntity> {
@@ -41,7 +41,7 @@ export class HardwareRepository extends Repository<HardwareEntity> {
             hardware.status = status;
         }
 
-        return hardware.save()
+        return await hardware.save()
     }
 
     async deleteHardware(id: number): Promise<DeleteResult> {

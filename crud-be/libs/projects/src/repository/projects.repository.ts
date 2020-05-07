@@ -10,12 +10,6 @@ import { User } from "@backend/users";
 
 @EntityRepository(Projects)
 export class ProjectsRepository extends Repository<Projects>{
-
-    constructor() {
-        super();
-
-        return this;
-    }
     
     async getAllProjects(user: User): Promise<Projects[]> {
         return (await this.find()).filter((project) => project.userId === user.id);

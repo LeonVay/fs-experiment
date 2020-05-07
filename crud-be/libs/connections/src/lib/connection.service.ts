@@ -6,7 +6,7 @@ import { CreateConnectionDto } from './dto/create-connection.dto';
 
 @Injectable()
 export class ConnectionService {
-    constructor(@InjectRepository(ConnectionEntity)
+    constructor(@InjectRepository(ConnectionRepository)
                 private connectionRepository: ConnectionRepository
     ) {}
 

@@ -22,12 +22,6 @@ export class UsersRepository extends Repository<User> {
 
     async createUser(createUserDto: CreateUsersDto): Promise<User> {
         const {firstName, lastName, login, passwd} = createUserDto;
-        // const exist = await this.find({login});
-
-        // if (exist) {
-        //     throw new ConflictException(`Error occurred.`);
-        // }
-
         const newUser = new User();
 
         newUser.firstName = firstName;

@@ -13,7 +13,9 @@ import { User } from "@backend/users";
 @Injectable()
 export class ProjectsService {
 
-    constructor(@InjectRepository(ProjectsRepository) private projectsRepository: ProjectsRepository) {}
+    constructor(@InjectRepository(ProjectsRepository)
+                private projectsRepository: ProjectsRepository
+    ) {}
 
     async getByCriteria(getCriteriaDto: GetCretariaDto, user: User): Promise<Projects[]> {
         let { status, search } = getCriteriaDto;

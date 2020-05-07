@@ -6,7 +6,7 @@ import { Impact, ImpactsRepository } from '@backend/impacts';
 import { UpdateAttackTypeDto } from '../dto/update-attack-type.dto';
 
 
-@EntityRepository()
+@EntityRepository(AttackType)
 export class AttackTypeRepository extends Repository<AttackType>{
     constructor() {
         super();
