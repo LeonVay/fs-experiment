@@ -1,5 +1,6 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, Unique, OneToMany } from "typeorm";
 import { Projects } from "@backend/projects";
+import { HardwareEntity } from '@backend/hardware';
 
 @Entity()
 @Unique(['login'])
@@ -27,4 +28,7 @@ export class User extends BaseEntity {
 
     @OneToMany(type => Projects, project => project.owner, { eager: true })
     projects: Projects[]
+
+    @OneToMany(type => HardwareEntity, hardware => hardware.ownerId)
+    devices: HardwareEntity[]
 }

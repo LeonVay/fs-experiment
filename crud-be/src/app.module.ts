@@ -7,6 +7,9 @@ import { User, UsersModule } from '@backend/users';
 import { AuthEntity, AuthModule } from '@backend/auth';
 import { Impact, ImpactsModule } from '@backend/impacts';
 import { AttackType, AttackTypeModule } from '@backend/attack-type';
+import { ConnectionEntity, ConnectionModule } from '@backend/connections';
+import { HardwareModule } from '../libs/hardware/src/lib/hardware.module';
+import { HardwareEntity } from '../libs/hardware/src/lib/repository/hardware.entity';
 
 @Module({
   imports: [
@@ -14,11 +17,13 @@ import { AttackType, AttackTypeModule } from '@backend/attack-type';
       type: 'sqlite',
       database: 'tmp/db.sql',
       entities: [
-        Projects,
-        User,
-        AuthEntity,
-        Impact,
-        AttackType
+          Projects,
+          User,
+          AuthEntity,
+          Impact,
+          AttackType,
+          ConnectionEntity,
+          HardwareEntity
       ],
       // entities: ["dist/**/*.entity{.ts,.js}"],
       logging: true,
@@ -34,11 +39,14 @@ import { AttackType, AttackTypeModule } from '@backend/attack-type';
 
       */
     }),
-    ProjectsModule,
-    UsersModule,
-    AuthModule,
-    ImpactsModule,
-    AttackTypeModule
+      ProjectsModule,
+      UsersModule,
+      AuthModule,
+      ImpactsModule,
+      AttackTypeModule,
+      ConnectionModule,
+      HardwareModule
+
   ],
   controllers: [AppController],
   providers: [AppService],

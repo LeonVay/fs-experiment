@@ -55,6 +55,24 @@
       "compileOptions": {
         "tsConfigPath": "libs/attack-type/tsconfig.lib.json"
       }
+    },
+    "hardware": {
+      "type": "library",
+      "root": "libs/hardware",
+      "entryFile": "index",
+      "sourceRoot": "libs/hardware/src",
+      "compileOptions": {
+        "tsConfigPath": "libs/hardware/tsconfig.lib.json"
+      }
+    },
+    "connections": {
+      "type": "library",
+      "root": "libs/connections",
+      "entryFile": "index",
+      "sourceRoot": "libs/connections/src",
+      "compileOptions": {
+        "tsConfigPath": "libs/connections/tsconfig.lib.json"
+      }
     }
   }
 }
